@@ -1,56 +1,57 @@
 # OneSaaS Starter Kit
 
-SaaS 프로젝트를 빠르게 시작할 수 있는 스타터 킷입니다.
+Next.js + Supabase + Tailwind SaaS 스타터 킷
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/johunsang/onesass-starter&env=DATABASE_URL,DIRECT_URL,OPENAI_API_KEY&envDescription=Supabase%20DB%20URL%20and%20AI%20API%20Keys&project-name=my-saas&repository-name=my-saas)
-
-## 원클릭 배포
-
-위 버튼을 클릭하면:
-1. GitHub 저장소 자동 생성
-2. Vercel 프로젝트 자동 생성
-3. 환경변수 설정 화면으로 이동
-4. 배포 완료!
-
-## 기술 스택
-
-- **Next.js 14** - App Router
-- **Tailwind CSS** - 스타일링
-- **Supabase** - PostgreSQL 데이터베이스
-- **Prisma** - ORM
-- **Vercel AI SDK** - OpenAI, Anthropic, Google
-- **Claude Code + MCP** - AI 개발 도구
-
-## 로컬 개발
+## 설치
 
 ```bash
+# 1. 클론
 git clone https://github.com/johunsang/onesass-starter.git my-app
 cd my-app
+
+# 2. 의존성 설치
 pnpm install
-pnpm setup    # 자동 설정 마법사
+
+# 3. 환경변수 설정 (대화형)
+pnpm setup
+
+# 4. DB 스키마 적용
+pnpm db:push
+
+# 5. 개발 서버 실행
 pnpm dev
 ```
 
-## 환경변수
+http://localhost:3000 에서 확인
 
-```env
-# Supabase
-DATABASE_URL="postgresql://..."
-DIRECT_URL="postgresql://..."
+## 필요한 것
 
-# AI (선택)
-OPENAI_API_KEY="sk-..."
-ANTHROPIC_API_KEY="sk-ant-..."
-```
+- **Node.js** v20+
+- **pnpm** (`npm i -g pnpm`)
+- **Supabase** 프로젝트 (무료) - https://supabase.com
+
+## 기술 스택
+
+- Next.js 14 (App Router)
+- Tailwind CSS
+- Prisma + Supabase
+- Vercel AI SDK
 
 ## 스크립트
 
-| 명령어 | 설명 |
-|--------|------|
-| `pnpm dev` | 개발 서버 |
-| `pnpm build` | 빌드 |
-| `pnpm setup` | 자동 설정 |
-| `pnpm db:push` | DB 스키마 적용 |
+```bash
+pnpm dev        # 개발 서버
+pnpm build      # 빌드
+pnpm setup      # 환경변수 설정
+pnpm db:push    # DB 스키마 적용
+pnpm db:studio  # Prisma Studio
+```
+
+## 배포
+
+Vercel에 배포:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/johunsang/onesass-starter)
 
 ## 라이선스
 
