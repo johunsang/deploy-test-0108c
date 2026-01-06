@@ -1,25 +1,12 @@
 import Link from 'next/link'
-import { readFileSync, existsSync } from 'fs'
-import { join } from 'path'
-
-// onesaas.json에서 설정 읽기
-function getConfig() {
-  try {
-    const configPath = join(process.cwd(), 'onesaas.json')
-    if (existsSync(configPath)) {
-      const config = JSON.parse(readFileSync(configPath, 'utf-8'))
-      return config
-    }
-  } catch {
-    // 설정 없으면 기본값
-  }
-  return null
-}
+import { getConfig, getProjectName, getCompanyInfo, isAdminEnabled } from '@/lib/config'
 
 export default function Home() {
   const config = getConfig()
-  const projectName = config?.project?.name || 'My SaaS'
-  const isConfigured = config?.project?.generatedBy === 'onesaas-wizard'
+  const projectName = getProjectName()
+  const company = getCompanyInfo()
+  const adminEnabled = isAdminEnabled()
+  const currentYear = new Date().getFullYear()
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--color-bg)', color: 'var(--color-text)' }}>
@@ -36,6 +23,14 @@ export default function Home() {
             <Link href="#pricing" className="text-sm hover:opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
               가격
             </Link>
+            <Link href="/dashboard" className="text-sm hover:opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
+              대시보드
+            </Link>
+            {adminEnabled && (
+              <Link href="/admin" className="text-sm hover:opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
+                관리자
+              </Link>
+            )}
             <Link
               href="/login"
               className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
@@ -206,19 +201,29 @@ export default function Home() {
             <div>
               <p className="font-bold text-lg" style={{ color: 'var(--color-accent)' }}>{projectName}</p>
               <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-                © 2024 All rights reserved.
+                © {currentYear} {company.name}. All rights reserved.
               </p>
             </div>
             <div className="flex gap-6">
+              <Link href="/dashboard" className="text-sm hover:opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
+                대시보드
+              </Link>
+              {adminEnabled && (
+                <Link href="/admin" className="text-sm hover:opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
+                  관리자
+                </Link>
+              )}
               <Link href="/terms" className="text-sm hover:opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
                 이용약관
               </Link>
               <Link href="/privacy" className="text-sm hover:opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
                 개인정보처리방침
               </Link>
-              <Link href="/contact" className="text-sm hover:opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
-                문의하기
-              </Link>
+              {company.email && (
+                <a href={`mailto:${company.email}`} className="text-sm hover:opacity-80" style={{ color: 'var(--color-text-secondary)' }}>
+                  문의하기
+                </a>
+              )}
             </div>
           </div>
         </div>
