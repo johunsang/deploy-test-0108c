@@ -2,13 +2,13 @@
   "$schema": "https://onesaas.kr/schema/onesaas.json",
   "schemaVersion": "1.0.0",
   "project": {
-    "id": "sadsdasd444",
-    "name": "sadsdasd444",
-    "slug": "sadsdasd444",
-    "company": "eeee",
-    "companyEn": "eeee",
-    "email": "support@sadsdasd444.com",
-    "createdAt": "2026-01-07T17:00:14.947Z",
+    "id": "dasddaaaaa1",
+    "name": "dasddaaaaa1",
+    "slug": "dasddaaaaa1",
+    "company": "dddd",
+    "companyEn": "dddd",
+    "email": "support@dasddaaaaa1.com",
+    "createdAt": "2026-01-07T17:14:08.205Z",
     "generatedBy": "onesaas-wizard"
   },
   "template": {
@@ -17,8 +17,8 @@
     "source": "https://github.com/johunsang/onesass-starter"
   },
   "theme": {
-    "id": "ecommerce",
-    "appliedAt": "2026-01-07T17:00:14.947Z"
+    "id": "minimal",
+    "appliedAt": "2026-01-07T17:14:08.205Z"
   },
   "features": {
     "auth": {
