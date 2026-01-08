@@ -55,6 +55,8 @@ jobs:
 
       - name: Run OpenManus Task
         working-directory: /tmp/openmanus
+        env:
+          DAYTONA_API_KEY: "not-used"
         run: |
           source .venv/bin/activate
           echo "Task: ${{ github.event.inputs.task }}"
