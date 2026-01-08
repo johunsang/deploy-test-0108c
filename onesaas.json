@@ -2,13 +2,13 @@
   "$schema": "https://onesaas.kr/schema/onesaas.json",
   "schemaVersion": "1.0.0",
   "project": {
-    "id": "my-test-saas-0108",
-    "name": "my-test-saas-0108",
-    "slug": "my-test-saas-0108",
-    "company": "my-test-saas-0108",
-    "companyEn": "my-test-saas-0108",
-    "email": "support@my-test-saas-0108.com",
-    "createdAt": "2026-01-08T04:06:13.893Z",
+    "id": "1314-jo",
+    "name": "1314-jo",
+    "slug": "1314-jo",
+    "company": "1314-jo",
+    "companyEn": "1314-jo",
+    "email": "support@1314-jo.com",
+    "createdAt": "2026-01-08T04:15:52.797Z",
     "generatedBy": "onesaas-wizard"
   },
   "template": {
@@ -18,7 +18,7 @@
   },
   "theme": {
     "id": "neon",
-    "appliedAt": "2026-01-08T04:06:13.893Z"
+    "appliedAt": "2026-01-08T04:15:52.797Z"
   },
   "features": {
     "auth": {
